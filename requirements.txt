@@ -1,0 +1,5 @@
+streamlit
+biopython
+scikit-learn
+joblib
+numpy
