@@ -97,7 +97,7 @@ with col1:
 
 with col2:
     st.markdown("### 🎯 Actions")
-    run_analysis = st.button("⚡ Scan Sequence", use_container_width=True, type="primary")
+    run_analysis = st.button("⚡ Scan Sequence", width="stretch", type="primary")
     st.caption(f"Sequence: {len(user_sequence)} aa" if user_sequence else "No sequence")
 
 # ── Analysis ───────────────────────────────────────────────────────────────
@@ -129,7 +129,7 @@ if run_analysis:
         # Display heatmap using Streamlit
         st.dataframe(
             heatmap_df.style.background_gradient(cmap="RdYlGn_r", axis=None),
-            use_container_width=True,
+            width="stretch",
             height=300
         )
         
@@ -165,7 +165,7 @@ if run_analysis:
             scaler = scalers_dict[epitope_type]
             config = EPITOPE_CONFIG[epitope_type]
             
-            st.caption(config["description"])
+            st.caption(config.get("description", "No description available."))
             
             try:
                 # Get top predictions
@@ -186,7 +186,7 @@ if run_analysis:
                     # Display results table
                     st.dataframe(
                         predictions_df,
-                        use_container_width=True,
+                        width="stretch",
                         hide_index=True,
                     )
                     
