@@ -20,7 +20,7 @@ st.set_page_config(
 )
 
 st.title("🧬 Immuno-Target AI")
-st.subheader("Multi-Epitope Predictor — Phase 3")
+st.subheader("Multi-Epitope Predictor")
 st.write("Scan protein sequences for B-cell, T-cell (MHC-I/II), and Affibody epitopes with interactive heatmap analysis.")
 
 # ── Sidebar Configuration ──────────────────────────────────────────────────
@@ -91,7 +91,7 @@ with col1:
     user_sequence = st.text_area(
         "Paste your protein sequence:",
         height=140,
-        placeholder="Example: MKTAYIAKQRQISFVKSHFSRQLEERLGLIEVQAPILSRVGDGTQDNLSGAEKAVQVKVKALPDAQFEVV...",
+        placeholder="Example: MKTAYIAKQRQISFVKSHFSRQLEERLGLIEVQ...",
         label_visibility="collapsed"
     )
 
@@ -286,13 +286,10 @@ if run_analysis:
 # ── Footer ─────────────────────────────────────────────────────────────────
 
 st.divider()
-col1, col2, col3 = st.columns(3)
+col1, col2 = st.columns()
 
 with col1:
-    st.caption("**Phase 3**: Sliding window scanner with heatmap visualization")
-
-with col2:
     st.caption("**Features**: 43 biochemical properties per peptide")
 
-with col3:
+with col2:
     st.caption("**Status**: Research use only")
